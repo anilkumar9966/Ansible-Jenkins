@@ -1,0 +1,14 @@
+---
+- hosts: tomcat
+  become: true
+  tasks: 
+    - name: start tomcat
+      service: 
+        name: start tomcat
+        state: started
+        enabled: yes
+
+    - name: copy war file
+      copy: src=./target/LoginWebApp-1.war dest=/opt/tomcat/webapps/
+
+
